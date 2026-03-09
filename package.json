@@ -5,12 +5,12 @@
   "packageManager": "pnpm@9.0.0",
   "scripts": {
     "build": "pnpm -r run build",
-    "dev": "pnpm --filter @company/ui dev",
+    "dev": "pnpm --filter @azenzus/ui dev",
     "lint": "eslint . --ext .ts,.tsx",
     "format": "prettier --check .",
     "format:write": "prettier --write .",
-    "storybook": "pnpm --filter @company/ui storybook",
-    "storybook:build": "pnpm --filter @company/ui storybook:build"
+    "storybook": "pnpm --filter @azenzus/ui storybook",
+    "storybook:build": "pnpm --filter @azenzus/ui storybook:build"
   },
   "devDependencies": {
     "@types/node": "^22.7.4",

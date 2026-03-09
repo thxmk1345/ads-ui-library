@@ -1,12 +1,14 @@
 export const spacing = {
-  none: "0px",
-  xs: "4px",
-  sm: "8px",
-  md: "12px",
-  lg: "16px",
-  xl: "24px",
-  "2xl": "32px",
-  "3xl": "48px"
+  1: 4,
+  2: 8,
+  3: 12,
+  4: 16,
+  5: 24,
+  6: 32,
+  7: 40,
+  8: 48,
+  9: 64,
+  10: 72,
 } as const;
 
 export type Spacing = typeof spacing;

@@ -1,18 +1,23 @@
-import { semanticColors } from "./semantic/colors";
+import { applied, base, core } from "./themes/light";
 import { spacing } from "./spacing";
 import { radius } from "./radius";
 import { typography } from "./typography";
 
 export const tokens = {
-  colors: semanticColors,
+  theme: {
+    applied,
+    base,
+    core,
+  },
   spacing,
   radius,
-  typography
+  typography,
 } as const;
 
 export type Tokens = typeof tokens;
 
-export { semanticColors } from "./semantic/colors";
-export { spacing } from "./spacing";
-export { radius } from "./radius";
-export { typography } from "./typography";
+/* re-export modules */
+export * from "./themes/light";
+export * from "./spacing";
+export * from "./radius";
+export * from "./typography";

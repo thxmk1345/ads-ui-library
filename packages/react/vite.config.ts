@@ -6,23 +6,23 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@company/tokens": path.resolve(__dirname, "../tokens/src"),
-      "@company/ui": path.resolve(__dirname, "./src")
-    }
+      "@azenzus/tokens": path.resolve(__dirname, "../tokens/src"),
+      "@azenzus/ui": path.resolve(__dirname, "./src"),
+    },
   },
   css: {
     modules: {
-      localsConvention: "camelCase"
-    }
+      localsConvention: "camelCase",
+    },
   },
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
       name: "CompanyUI",
-      fileName: "index"
+      fileName: "index",
     },
     rollupOptions: {
-      external: ["react", "react-dom"]
-    }
-  }
+      external: ["react", "react-dom"],
+    },
+  },
 });

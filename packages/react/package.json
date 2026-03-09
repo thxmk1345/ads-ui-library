@@ -1,6 +1,6 @@
 {
-  "name": "@company/ui",
-  "version": "1.0.0",
+  "name": "@azenzus/ui",
+  "version": "0.0.1",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -23,12 +23,15 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsup",
+    "build": "pnpm run generate:icons && tsup",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build"
+    "storybook:build": "storybook build",
+    "generate:icon-exports": "ls src/icons/generated/*.tsx | xargs -n1 basename | sed 's/.tsx$//' | awk '{print \"export { default as \"$1\" } from \\\"./generated/\"$1\"\\\";\"}' > src/icons/index.ts",
+    "generate:icons": "svgr --icon --typescript --replace-attr-values \"#000=currentColor\" --replace-attr-values \"#000000=currentColor\" --replace-attr-values \"#1E1E1E=currentColor\" --out-dir src/icons/generated src/icons/raw"
   },
   "dependencies": {
-    "@company/tokens": "workspace:*",
+    "@azenzus/tokens": "^0.0.1",
+    "@fontsource/roboto": "^5.2.10",
     "clsx": "^2.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
@@ -43,6 +46,7 @@
     "@storybook/addon-interactions": "8.6.17",
     "@storybook/react": "8.6.17",
     "@storybook/react-vite": "^8.6.17",
+    "@svgr/cli": "^8.1.0",
     "@types/react": "^18.3.9",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.2",

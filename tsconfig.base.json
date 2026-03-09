@@ -16,8 +16,8 @@
 
     "baseUrl": ".",
     "paths": {
-      "@company/tokens": ["./packages/tokens"],
-      "@company/ui": ["./packages/react"]
+      "@azenzus/tokens": ["./packages/tokens"],
+      "@azenzus/ui": ["./packages/react"]
     }
   }
 }

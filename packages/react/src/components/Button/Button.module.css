@@ -1,39 +1,63 @@
 .button {
+  position: relative;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  border: 1px solid transparent;
-  border-radius: var(--button-radius);
-  padding: var(--button-padding-y) var(--button-padding-x);
-  font-weight: 600;
-  font-size: var(--button-font-size);
-  line-height: 1.2;
-  cursor: pointer;
-  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease,
-    box-shadow 150ms ease, transform 120ms ease;
+  gap: var(--gap);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  height: var(--h);
+  padding: 0 var(--px);
+
+  font-size: var(--label-font-size);
+  font-family: var(--label-font-family);
+  letter-spacing: var(--label-letter-spacing);
+  line-height: var(--label-line-height);
+  font-weight: var(--label-font-weight);
+
   min-width: 2.5rem;
-  background-color: var(--button-bg);
-  color: var(--button-text);
+  cursor: pointer;
+
+  background-color: var(--bg);
+  color: var(--label);
+
+  overflow: hidden;
+
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease;
 }
 
+/* hover */
 .button:hover:not(.disabled):not(.loading) {
-  background-color: var(--button-bg-hover);
-  color: var(--button-text-hover);
+  background-color: var(--bg-hover);
+  color: var(--label-hover);
 }
 
+/* active */
 .button:active:not(.disabled):not(.loading) {
-  transform: translateY(1px);
+  background-color: var(--bg-active);
+  color: var(--label-active);
 }
 
-.button:focus-visible {
+/* focus ring */
+.button:focus-visible:not(.disabled):not(.loading) {
   outline: none;
-  box-shadow: 0 0 0 3px var(--button-focus-ring);
+
+  box-shadow: 0 0 0 2px var(--focus);
 }
 
-.ghost {
-  background-color: transparent;
-  border-color: transparent;
+/* disabled */
+.disabled {
+  cursor: not-allowed;
+  background-color: var(--bg-disabled);
+  color: var(--label-disabled);
+  border-color: var(--border-disabled);
+  opacity: 0.65;
 }
 
 .fullWidth {
@@ -44,22 +68,10 @@
   cursor: progress;
 }
 
-.disabled {
-  opacity: 0.65;
-  cursor: not-allowed;
-}
-
-.spinner {
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  animation: spin 800ms linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--icon);
+  line-height: 0;
 }

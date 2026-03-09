@@ -6,17 +6,17 @@ const config: StorybookConfig = {
   addons: ["@storybook/addon-essentials"],
   framework: {
     name: "@storybook/react-vite",
-    options: {}
+    options: {},
   },
   viteFinal: async (config) => {
     config.resolve = config.resolve || {};
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
-      "@company/tokens": path.resolve(__dirname, "../../tokens/src"),
-      "@company/ui": path.resolve(__dirname, "../src")
+      "@azenzus/tokens": path.resolve(__dirname, "../../tokens/src"),
+      "@azenzus/ui": path.resolve(__dirname, "../src"),
     };
     return config;
-  }
+  },
 };
 
 export default config;
